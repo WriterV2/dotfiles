@@ -1,0 +1,9 @@
+configuration {
+modi: "drun";
+prompt: "find";
+font: "Hack 12";
+terminal: "alacritty";
+          icon-theme: "Advaita";
+          show-icons: true;
+}
+@theme "~/.config/rofi/theme.rasi"
