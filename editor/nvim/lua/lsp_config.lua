@@ -99,7 +99,10 @@ lspconfig['rust_analyzer'].setup {
     capabilities = capabilities,
     on_attach = on_attach,
     settings = {
-        ["rust_analyzer"] = {
+        ["rust-analyzer"] = {
+            checkOnSave = {
+                command = "clippy"
+            },
             assist = {
                 importGranularity = "module",
                 importPrefix = "by_self",
