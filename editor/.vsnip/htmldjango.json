@@ -854,7 +854,7 @@
             "\t$0",
             "{% endblock $1 %}"
         ],
-        "description": "tera block"
+        "description": "Tera - Block"
     },
     "{{": {
         "prefix": "{{",
