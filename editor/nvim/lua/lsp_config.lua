@@ -23,6 +23,14 @@ function toggle_diagnostics_qflist()
     end
 end
 
+-- compile tex file to pdf with pdflatex on save
+vim.api.nvim_create_autocmd("BufWritePost", {
+    pattern = "*.tex",
+    callback = function()
+        vim.cmd("execute '!pdflatex' . ' ' . expand('%:p')")
+    end,
+})
+
 -- setup and config nvim-cmp completion
 local cmp = require("cmp")
 cmp.register_source("nvim_lsp_signature_help", require("cmp_nvim_lsp_signature_help").new())
