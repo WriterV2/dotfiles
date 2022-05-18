@@ -6,10 +6,8 @@ vim.diagnostic.config({
     signs = true,
     float = { border = 'single' },
 })
-vim.keymap.set("n", "<M-q>", function() toggle_diagnostics_qflist() end)
-
--- toggle quickfix list
-function toggle_diagnostics_qflist()
+vim.keymap.set("n", "<M-q>", function()
+    -- toggle quickfix list
     local windows = vim.fn.getwininfo()
     local qf_opened = false
     for i = 1, vim.fn.len(windows), 1 do
@@ -21,15 +19,9 @@ function toggle_diagnostics_qflist()
     else
         vim.diagnostic.setqflist()
     end
-end
 
--- compile tex file to pdf with pdflatex on save
-vim.api.nvim_create_autocmd("BufWritePost", {
-    pattern = "*.tex",
-    callback = function()
-        vim.cmd("execute '!pdflatex' . ' ' . expand('%:p')")
-    end,
-})
+end)
+
 
 -- setup and config nvim-cmp completion
 local cmp = require("cmp")
@@ -88,7 +80,7 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protoco
 local lspconfig = require("lspconfig")
 
 -- attaches settings after language server attaches to current buffer
-local on_attach = function(client, bufnr)
+local on_attach = function()
     vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end)
     vim.keymap.set("n", "gr", function() vim.lsp.buf.references() end)
     vim.keymap.set("n", "gi", function() vim.lsp.buf.implementation() end)
