@@ -12,5 +12,5 @@ require "paq" {
     "rafamadriz/friendly-snippets";
     "hrsh7th/cmp-nvim-lsp-signature-help";
     "nvim-treesitter/nvim-treesitter";
-    "beauwilliams/statusline.lua";
+    "j-hui/fidget.nvim";
 }

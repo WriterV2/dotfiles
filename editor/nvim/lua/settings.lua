@@ -11,3 +11,4 @@ vim.cmd("colorscheme dogrun")
 vim.opt.completeopt = { "menuone", "noinsert", "noselect" }
 vim.opt.cursorline = true
 vim.cmd("highlight clear CursorLine")
+vim.opt.statusline = "%=  %f  %= "
