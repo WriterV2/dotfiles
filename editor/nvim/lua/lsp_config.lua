@@ -159,3 +159,6 @@ lspconfig['sumneko_lua'].setup {
         }
     }
 }
+
+-- show nvim-lsp progress
+require "fidget".setup {}
