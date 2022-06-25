@@ -24,7 +24,7 @@ modules-right = date time
 
 [module/wlan]
 type = internal/network
-interface = wlp0s20f0u8
+interface = wlan0
 interval = 1.0
 format-connected = <ramp-signal>  <label-connected>
 label-connected =  %upspeed%  %downspeed%
