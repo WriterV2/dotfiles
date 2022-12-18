@@ -10,18 +10,19 @@ vim.keymap.set("n", "<M-q>", function()
     -- toggle quickfix list
     local windows = vim.fn.getwininfo()
     local qf_opened = false
-    for i = 1, vim.fn.len(windows), 1 do
+    for i = 1, #windows, 1 do
         local window = windows[i]
-        if window.quickfix == 1 then qf_opened = true end
+        if window.quickfix == 1 then
+            qf_opened = true
+            break
+        end
     end
     if qf_opened then
-        vim.cmd(":cclose")
+        vim.api.nvim_command("cclose")
     else
         vim.diagnostic.setqflist()
     end
-
 end)
-
 
 -- setup and config nvim-cmp completion
 local cmp = require("cmp")
@@ -75,7 +76,7 @@ cmp.setup.cmdline(':', {
 })
 
 -- add additional completion capabilities
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 local lspconfig = require("lspconfig")
 
@@ -88,13 +89,17 @@ local on_attach = function()
     vim.api.nvim_create_autocmd("BufWritePre", {
         pattern = "*",
         callback = function()
-            vim.lsp.buf.formatting_seq_sync()
+            vim.lsp.buf.format {
+                async = false
+            }
         end,
     })
 
 end
 
 -- Language Servers
+
+-- Rust
 lspconfig['rust_analyzer'].setup {
     capabilities = capabilities,
     on_attach = on_attach,
@@ -116,38 +121,57 @@ lspconfig['rust_analyzer'].setup {
         },
     },
 }
+
+-- Bash
 lspconfig['bashls'].setup {
     capabilities = capabilities,
     on_attach = on_attach,
 }
-lspconfig['pylsp'].setup {
+
+-- Python
+lspconfig['jedi_language_server'].setup {
     capabilities = capabilities,
     on_attach = on_attach,
 }
+
+-- HTML
 lspconfig['html'].setup {
     capabilities = capabilities,
     on_attach = on_attach,
 }
+
+-- CSS
 lspconfig['cssls'].setup {
     capabilities = capabilities,
     on_attach = on_attach,
 }
+
+-- Tex
 lspconfig['texlab'].setup {
     capabilities = capabilities,
     on_attach = on_attach,
 }
+
+-- Svelte
 lspconfig['svelte'].setup {
     capabilities = capabilities,
     on_attach = on_attach,
 }
-lspconfig['eslint'].setup {
+
+-- Typescript & Javascript
+lspconfig['tsserver'].setup {
     capabilities = capabilities,
     on_attach = on_attach,
+    filetypes = { "typescript", "javascript" },
 }
+
+-- JSON
 lspconfig['jsonls'].setup {
     capabilities = capabilities,
     on_attach = on_attach,
 }
+
+-- Lua
 lspconfig['sumneko_lua'].setup {
     capabilities = capabilities,
     on_attach = on_attach,
@@ -159,6 +183,20 @@ lspconfig['sumneko_lua'].setup {
         }
     }
 }
+
+-- Java
+lspconfig['java_language_server'].setup {
+    capabilities = capabilities,
+    on_attach = on_attach,
+    cmd = { "/usr/share/java/java-language-server/lang_server_linux.sh" },
+}
+
+-- C lang
+lspconfig['clangd'].setup {
+    capabilities = capabilities,
+    on_attach = on_attach,
+}
+
 
 -- show nvim-lsp progress
 require "fidget".setup {}
