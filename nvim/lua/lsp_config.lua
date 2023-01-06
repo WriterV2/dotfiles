@@ -1,4 +1,4 @@
-vim.lsp.set_log_level(4)
+local lspconfig = require("lspconfig")
 
 -- show diagnostic messages in quickfix list with <M-q>
 vim.diagnostic.config({
@@ -78,14 +78,14 @@ cmp.setup.cmdline(':', {
 -- add additional completion capabilities
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-local lspconfig = require("lspconfig")
 
 -- attaches settings after language server attaches to current buffer
-local on_attach = function()
-    vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end)
-    vim.keymap.set("n", "gr", function() vim.lsp.buf.references() end)
-    vim.keymap.set("n", "gi", function() vim.lsp.buf.implementation() end)
-    vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end)
+local on_attach = function(client, bufnr)
+    local bufopts = { noremap = true, silent = true, buffer = bufnr }
+    vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
+    vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
+    vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
+    vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
     vim.api.nvim_create_autocmd("BufWritePre", {
         pattern = "*",
         callback = function()
