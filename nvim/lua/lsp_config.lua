@@ -38,7 +38,7 @@ cmp.setup({
     mapping = cmp.mapping.preset.insert {
         ['<CR>'] = cmp.mapping.confirm({ select = true }),
         ['<C-Down>'] = cmp.mapping.scroll_docs(4),
-        ['<C-Up>'] = cmp.mapping.scroll_docs(-4),
+        ['<C-Up>'] = cmp.mapping.scroll_docs( -4),
     },
     -- complete based on LSP, Snippets and Buffer
     sources = cmp.config.sources({
@@ -72,7 +72,6 @@ cmp.setup.cmdline(':', {
     }, {
         { name = 'cmdline' }
     }),
-
 })
 
 -- add additional completion capabilities
@@ -94,7 +93,6 @@ local on_attach = function(client, bufnr)
             }
         end,
     })
-
 end
 
 -- Language Servers
@@ -172,13 +170,16 @@ lspconfig['jsonls'].setup {
 }
 
 -- Lua
-lspconfig['sumneko_lua'].setup {
+lspconfig['lua_ls'].setup {
     capabilities = capabilities,
     on_attach = on_attach,
     settings = {
         Lua = {
             diagnostics = {
                 globals = { "vim", "on_attach" }
+            },
+            workspace = {
+                library = vim.api.nvim_get_runtime_file("", true),
             }
         }
     }
