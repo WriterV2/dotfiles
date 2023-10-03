@@ -1,0 +1,26 @@
+html {
+    --toolbar-bgcolor: #222433 !important;
+    --toolbar-field-color: #929be5 !important;
+    --toolbar-field-focus-color: #929be5 !important;
+    --toolbar-field-focus-background-color: #222433 !important;
+    --focus-outline-color: #282b39 !important;
+    --toolbar-color: #929be5 !important;
+    --toolbarbutton-icon-fill: #a09b7f !important;
+    --arrowpanel-color: #929be5 !important;
+    --arrowpanel-background: #222433 !important;
+    --lwt-selected-tab-background-color: #222433 !important;
+    --lwt-brighttext-url-color: #a09b7f !important;
+    --lwt-tab-text: #929be5 !important;
+    --autocomplete-popup-highlight-color: #a09b7f !important;
+    color: #929be5 !important;
+}
+
+#back-button,
+#forward-button,
+#unified-extensions-button {
+    display: none !important;
+}
+
+#urlbar-container {
+    margin-left: 1em !important;
+}

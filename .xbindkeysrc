@@ -1,0 +1,43 @@
+# increase volume
+"amixer set Master 5%+"
+m:0x48 + c:35
+Alt+Mod4 + plus
+
+# decrease volume
+"amixer set Master 5%-"
+m:0x48 + c:61
+Alt+Mod4 + minus
+
+# (un)mute volume
+"amixer set Master toggle"
+XF86AudioMute
+
+# run app launcher (rofi drun mode)
+"rofi -show drun"
+m:0x48 + c:65
+Alt+Mod4 + space
+
+# run clipboard manager selection (rofi + clipcat)
+"clipcat-menu -f rofi"
+m:0x48 + c:54
+Alt+Mod4 + c
+
+# run color picker (xcolor) and save to clipboard (clipcat)
+"xcolor | xargs -I {} clipcatctl insert {}"
+m:0x48 + c:53
+Alt+Mod4 + x
+
+# open an image (rofi + feh)
+"fd . -e png -e jpg -e gif /mnt/files/Pictures | rofi -dmenu | xargs -I {} feh {}"
+m:0x48 + c:33
+Alt+Mod4 + p
+
+# open a document (rofi + pdf)
+"fd . -e pdf /mnt/files/ | rofi -dmenu | xargs -I {} zathura {}"
+m:0x48 + c:40
+Alt+Mod4 + d
+
+# save screenshot with selection
+"maim -s /mnt/files/Pictures/Screens/$(date +%s)-screen.png"
+m:0x0 + c:107
+Print

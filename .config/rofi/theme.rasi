@@ -1,0 +1,53 @@
+/**
+ * Rofi Color Theme - dmenu + Dogrun
+ **/
+
+* {
+    background-color: #222432;
+    border-color:     #919ae4;
+    font:             "Hack 10";
+    text-color:       #919ae4;
+}
+
+window {
+    width:    100.0000% ;
+    padding:  3px ;
+    anchor:   north;
+    location: north;
+    children: [ horibox ];
+}
+
+horibox {
+    orientation: horizontal;
+    children:    [ prompt,entry,listview ];
+}
+
+listview {
+    layout:  horizontal;
+    spacing: 100px ;
+    lines:   100;
+}
+
+entry {
+    width:  10.0000em ;
+    expand: false;
+}
+
+element {
+    padding: 0px 2px ;
+}
+
+element selected {
+    background-color: @text-color;
+    text-color: @background-color;
+}
+
+element-text {
+    background-color: inherit;
+    text-color:       inherit;
+}
+
+element-icon {
+    background-color: inherit;
+    text-color:       inherit;
+}

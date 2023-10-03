@@ -1,0 +1,28 @@
+"query:General News:(tags # \"news\") and (age < 3)"
+http://rss.dw.com/xml/rss-de-news news !
+
+"query:NASA:(tags # \"nasa\") and (age < 3)"
+https://mars.nasa.gov/rss/api/?feed=news&category=all&feedtype=rss nasa !
+https://climate.nasa.gov/news/rss.xml nasa !
+https://www.nasa.gov/feed/ nasa !
+https://sci.esa.int/web/newssyndication/rss/cosmicvisionweb.xml/-/asset_publisher/Lbqlu6xp3TsN/rss nasa !
+
+"query:Arch Linux:(tags # \"arch\") and (age < 3)"
+https://archlinux.org/feeds/packages/x86_64/ arch !
+https://archlinux.org/feeds/packages/added/x86_64/ arch !
+https://archlinux.org/feeds/packages/removed/x86_64/ arch !
+https://archlinux.org/feeds/news/ arch !
+https://wiki.archlinux.org/index.php?title=Special:RecentChanges&feed=rss arch !
+
+"query:Sustainable Development:(tags # \"sd\")"
+https://sustainablewebdesign.org/strategies/rss sd !
+https://www.mightybytes.com/rss sd !
+https://www.wholegraindigital.com/rss sd !
+
+"query:Neovim:(tags # \"nvim\")"
+https://github.com/neovim/neovim/tags.atom nvim !
+
+"query:Rust:(tags # \"rust\")"
+https://blog.rust-lang.org/feed.xml rust !
+https://blog.rust-lang.org/inside-rust/feed.xml rust !
+https://tokio.rs/_next/static/feed.xml rust !
