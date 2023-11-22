@@ -13,6 +13,7 @@ html {
     --lwt-tab-text: #929be5 !important;
     --autocomplete-popup-highlight-color: #a09b7f !important;
     color: #929be5 !important;
+    --tab-selected-textcolor: inherited !important;
 }
 
 #back-button,
