@@ -14,6 +14,7 @@ html {
     --autocomplete-popup-highlight-color: #a09b7f !important;
     color: #929be5 !important;
     --tab-selected-textcolor: inherited !important;
+    --tab-selected-bgcolor: inherited !important;
 }
 
 #back-button,
