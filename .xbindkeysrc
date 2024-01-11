@@ -1,10 +1,10 @@
 # increase volume
-"amixer set Master 5%+"
+"amixer set Master 1%+"
 m:0x48 + c:35
 Alt+Mod4 + plus
 
 # decrease volume
-"amixer set Master 5%-"
+"amixer set Master 1%-"
 m:0x48 + c:61
 Alt+Mod4 + minus
 
