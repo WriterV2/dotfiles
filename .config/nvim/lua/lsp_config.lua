@@ -198,6 +198,11 @@ lspconfig['clangd'].setup {
     on_attach = on_attach,
 }
 
+-- Nushell
+lspconfig['nushell'].setup {
+    capabilities = capabilities,
+    on_attach = on_attach,
+}
 
 -- show nvim-lsp progress
 require "fidget".setup {}

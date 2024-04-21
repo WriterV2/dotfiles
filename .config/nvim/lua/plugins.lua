@@ -12,5 +12,6 @@ require "paq" {
     "rafamadriz/friendly-snippets",
     "hrsh7th/cmp-nvim-lsp-signature-help",
     "nvim-treesitter/nvim-treesitter",
-    { "j-hui/fidget.nvim", pin = true },
+    "j-hui/fidget.nvim",
+    "LhKipp/nvim-nu",
 }
