@@ -204,5 +204,12 @@ lspconfig['nushell'].setup {
     on_attach = on_attach,
 }
 
+-- Nushell
+lspconfig['gopls'].setup {
+    capabilities = capabilities,
+    on_attach = on_attach,
+}
+
+
 -- show nvim-lsp progress
 require "fidget".setup {}
