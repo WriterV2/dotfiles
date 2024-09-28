@@ -157,7 +157,7 @@ lspconfig['svelte'].setup {
 }
 
 -- Typescript & Javascript
-lspconfig['tsserver'].setup {
+lspconfig['ts_ls'].setup {
     capabilities = capabilities,
     on_attach = on_attach,
     filetypes = { "typescript", "javascript" },
@@ -209,7 +209,5 @@ lspconfig['gopls'].setup {
     capabilities = capabilities,
     on_attach = on_attach,
 }
-
-
 -- show nvim-lsp progress
 require "fidget".setup {}
