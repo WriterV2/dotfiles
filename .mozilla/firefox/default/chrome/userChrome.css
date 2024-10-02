@@ -19,7 +19,8 @@ html {
 
 #back-button,
 #forward-button,
-#unified-extensions-button {
+#unified-extensions-button,
+#alltabs-button {
     display: none !important;
 }
 
