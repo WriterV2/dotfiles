@@ -186,10 +186,9 @@ lspconfig['lua_ls'].setup {
 }
 
 -- Java
-lspconfig['java_language_server'].setup {
+lspconfig['jdtls'].setup {
     capabilities = capabilities,
     on_attach = on_attach,
-    cmd = { "/usr/share/java/java-language-server/lang_server_linux.sh" },
 }
 
 -- C lang
@@ -204,10 +203,11 @@ lspconfig['nushell'].setup {
     on_attach = on_attach,
 }
 
--- Nushell
+-- Go
 lspconfig['gopls'].setup {
     capabilities = capabilities,
     on_attach = on_attach,
 }
+
 -- show nvim-lsp progress
 require "fidget".setup {}
