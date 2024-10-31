@@ -209,5 +209,22 @@ lspconfig['gopls'].setup {
     on_attach = on_attach,
 }
 
+-- Tailwind
+lspconfig['tailwindcss'].setup {
+    capabilities = capabilities,
+    on_attach = on_attach,
+    init_options = {
+        userLanguages = {
+            rust = "html",
+        }
+    },
+    filetypes = {
+        "html",
+        "svelte",
+        "rust"
+    }
+}
+
+
 -- show nvim-lsp progress
 require "fidget".setup {}
