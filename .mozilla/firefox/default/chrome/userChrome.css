@@ -20,7 +20,12 @@ html {
 #back-button,
 #forward-button,
 #unified-extensions-button,
-#alltabs-button {
+#alltabs-button,
+#firefox-view-button,
+#new-tab-button,
+#downloads-button,
+#PanelUI-menu-button,
+#identity-icon {
     display: none !important;
 }
 
