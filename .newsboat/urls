@@ -1,18 +1,12 @@
 "query:General News:(tags # \"news\") and (age < 3)"
 http://rss.dw.com/xml/rss-de-news news !
 
-"query:NASA:(tags # \"nasa\") and (age < 3)"
-https://mars.nasa.gov/rss/api/?feed=news&category=all&feedtype=rss nasa !
-https://climate.nasa.gov/news/rss.xml nasa !
-https://www.nasa.gov/feed/ nasa !
-https://sci.esa.int/web/newssyndication/rss/cosmicvisionweb.xml/-/asset_publisher/Lbqlu6xp3TsN/rss nasa !
+"query:Space:(tags # \"space\") and (age < 3)"
+https://www.nasa.gov/news-release/feed space !
+http://www.esa.int/rssfeed/Our_Activities/Space_News space !
 
-"query:Arch Linux:(tags # \"arch\") and (age < 3)"
-https://archlinux.org/feeds/packages/x86_64/ arch !
-https://archlinux.org/feeds/packages/added/x86_64/ arch !
-https://archlinux.org/feeds/packages/removed/x86_64/ arch !
+"query:Arch Linux:(tags # \"arch\") and (age < 90)"
 https://archlinux.org/feeds/news/ arch !
-https://wiki.archlinux.org/index.php?title=Special:RecentChanges&feed=rss arch !
 
 "query:Sustainable Development:(tags # \"sd\")"
 https://sustainablewebdesign.org/strategies/rss sd !
@@ -22,7 +16,33 @@ https://www.wholegraindigital.com/rss sd !
 "query:Neovim:(tags # \"nvim\")"
 https://github.com/neovim/neovim/tags.atom nvim !
 
-"query:Rust:(tags # \"rust\")"
+"query:Rust:(tags # \"rust\") and (age < 30)"
 https://blog.rust-lang.org/feed.xml rust !
 https://blog.rust-lang.org/inside-rust/feed.xml rust !
 https://tokio.rs/_next/static/feed.xml rust !
+https://this-week-in-rust.org/rss.xml rust !
+https://bevyengine.org/atom.xml rust !
+https://thisweekinbevy.com/feed.xml rust !
+
+"query:Software Development Misc:(tags # \"sdmisc\") and (age < 30)"
+https://cprss.s3.amazonaws.com/golangweekly.com.xml sdmisc !
+https://blog.jetbrains.com/kotlin/feed/ sdmisc !
+https://elixir-lang.org/atom.xml sdmisc !
+https://cprss.s3.amazonaws.com/postgresweekly.com.xml sdmisc !
+
+"query:Web Development Misc:(tags # \"wdmisc\") and (age < 30)"
+https://devblogs.microsoft.com/typescript/feed/ wdmisc !
+https://cprss.s3.amazonaws.com/javascriptweekly.com.xml wdmisc !
+https://feedpress.me/cssweekly wdmisc !
+https://tailwindweekly.com/rss/ wdmisc !
+https://servo.org/blog/feed.xml wdmisc !
+
+"query:Learning Japanese:(tags # \"japanese\")"
+https://www.tofugu.com/feed.xml japanese !
+
+"query:Movies:(tags # \"movies\")"
+https://baradwajrangan.wordpress.com/feed/ movies !
+https://sudhir-srinivasan.com/rss movies !
+
+"query:Games:(tags # \"games\")"
+https://www.bay12games.com/dwarves/dev_now.rss games !
