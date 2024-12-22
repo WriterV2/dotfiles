@@ -6,6 +6,13 @@
 # https://www.nushell.sh/book/coloring_and_theming.html
 # And here is the theme collection
 # https://github.com/nushell/nu_scripts/tree/main/themes
+
+let completer = {|spans|
+    fish --command $'complete "--do-complete=($spans | str join " ")"'
+    | from tsv --flexible --noheaders --no-infer
+    | rename value description
+}
+
 let dark_theme = {
     # color for nushell primitives
     separator: white
@@ -210,7 +217,7 @@ $env.config = {
         external: {
             enable: true # set to false to prevent nushell looking into $env.PATH to find more suggestions, `false` recommended for WSL users as this look up may be very slow
             max_results: 100 # setting it lower can improve completion performance at the cost of omitting some options
-            completer: null # check 'carapace_completer' above as an example
+            completer: $completer
         }
         use_ls_colors: true # set this to true to enable file/path/directory completions using LS_COLORS
     }
@@ -895,6 +902,7 @@ export def --wrapped rg [...rest] {
     } 
     $result | lines | parse "{File}:{Result}" | update Result { |row| ($row.Result | str replace --all $rest.0 $'(ansi gb)($rest.0)(ansi reset)') } | sort-by File
 }
+
 
 use ~/.cache/starship/init.nu
 use documents.nu
