@@ -50,3 +50,6 @@ dynamic_padding = true
 [window.padding]
 x = 15
 y = 8
+
+[terminal.shell]
+program = "/bin/nu"
