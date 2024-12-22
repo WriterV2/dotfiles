@@ -885,6 +885,17 @@ $env.config = {
     ]
 }
 
+alias _rg = rg
+export def --wrapped rg [...rest] {
+    mut result = ''
+    if ($in != null) { 
+        $result = (print $in | _rg ...$rest)
+    } else {
+        $result = (_rg ...$rest)     
+    } 
+    $result | lines | parse "{File}:{Result}" | update Result { |row| ($row.Result | str replace --all $rest.0 $'(ansi gb)($rest.0)(ansi reset)') } | sort-by File
+}
+
 use ~/.cache/starship/init.nu
 use documents.nu
 use remarkable.nu
