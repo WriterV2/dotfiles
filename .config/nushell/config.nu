@@ -907,3 +907,4 @@ export def --wrapped rg [...rest] {
 use ~/.cache/starship/init.nu
 use documents.nu
 use remarkable.nu
+use notes.nu
