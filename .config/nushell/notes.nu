@@ -23,7 +23,27 @@ export def add [text: string] {
     save-db-to-file
 }
 
-export def search [] {
+export def search [--before: datetime, --after: datetime ] {
     open-db-in-memory
-    open (get-db-path) | get note | input list --fuzzy -d text 
+    let before_filter = if ($before != null) { 
+        $before
+    } else { 
+        date now
+    }
+
+    let after_filter = if ($after != null) { 
+        $after
+    } else {
+        "0001-01-01" | into datetime
+    }
+
+    let notes = open (get-db-path) | get note | where {|row|
+        ($row.created | into datetime) < $before_filter and ($row.created | into datetime) > $after_filter
+    }
+
+    if ($notes | is-not-empty) {
+        $notes | input list --fuzzy -d text 
+    } else {
+        "No notes found"
+    }
 }
